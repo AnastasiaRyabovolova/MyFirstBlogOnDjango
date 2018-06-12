@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <li class=" breadcrumb-item active">Boards</li>
+{% endblock %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/boards.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+  {% if user.is_authenticated and user.is_reporter %}
+  <a href ='#' data-url="{% url 'create_board' %}" method='GET' class="btn btn-primary js-get-create-form">Create new</a>
+  {% endif %}
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9">
+      {% include 'includes/boards.html' %}
+    </div>
+    <div class="col-3 history-div">
+       {% include 'includes/history.html' %}
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal-board">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block javascript %}
+  <script src={% static "js/blog/board.js" %}></script>
+{% endblock %}

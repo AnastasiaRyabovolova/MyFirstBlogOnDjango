@@ -1,0 +1,27 @@
+{% extends 'base_accounts.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Sign up to Django Boards{% endblock %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-8">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Who are you, my guest?:)</h3>
+          <div class="container my-4 ml-0">
+            <a href = "{% url 'signup_reader' %}"type="submit" class="btn btn-success col-md-2 mx-3">Reader</a>
+            <a href = "{% url 'signup_reporter' %}"type="submit" class="btn btn-warning col-md-2 mx-3">Reporter</a>
+          </div>
+        </div>
+        <div class="card-footer text-muted text-center">
+          Already have an account? <a href="{% url 'login' %}">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}#}

@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  blog_db:
+    image: postgres:latest
+  django:
+    build: ./blogProject/
+    command: python manage.py runserver 0.0.0.0:8080
+    env_file:
+      - ./blogProject/.env
+    volumes:
+      - .:/tmp
+    ports:
+      - "8080:8080"
+    depends_on:
+      - blog_db
+    working_dir: /tmp/blogProject
+
+  redis:
+    image: redis:latest
+    container_name: broker
+
+

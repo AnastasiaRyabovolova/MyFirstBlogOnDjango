@@ -1,0 +1,53 @@
+body {
+  background-image: url(../img/doodles.png);
+}
+
+.logo {
+  font-family: 'Peralta', cursive;
+}
+
+.logo a {
+  color: rgba(0,0,0,.9);
+
+}
+
+.logo a:hover,
+.logo a:active {
+  text-decoration: none;
+}
+
+.fa {
+    padding: 3px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    color: #fff;
+    background: #3B5998;
+
+}
+
+/* Twitter */
+.fa-twitter {
+    color: #fff;
+    background: #55ACEE;
+
+}
+
+.fa-github {
+    color: #fff;
+    background: #444444;
+
+}

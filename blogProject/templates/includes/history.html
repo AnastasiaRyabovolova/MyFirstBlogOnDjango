@@ -1,0 +1,20 @@
+{% load static %}
+
+<table  class="table table-bordered text-left history-table" >
+  <thead class="thead-inverse">
+    <tr>
+      <th>History</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for action in actions %}
+      <tr>
+        <td style="font-size:9pt;">
+
+          <img src="{% static 'img/img_' %}{{action.action}}.png" width="15" height="15" alt="Edit">
+          {{action.board.name}}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}{{ topic.subject }}{% endblock %}
+
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'css/simplemde.min.css' %}">
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'board_topics' topic.board.pk %}">{{ topic.board.name }}</a></li>
+  <li class="breadcrumb-item active">{{ topic.subject }}</li>|
+{% endblock %}
+
+
+{% block content %}
+{% url 'topic_posts' topic.board.pk topic.pk as topic_url %}
+    <div class="mb-4">
+      <form method="post" class="mb-4 js-create-post-form" data-url="{{ topic_url }}" novalidate>
+        {% csrf_token %}
+        <div class="ajax_form">
+          {% include 'includes/form.html' %}
+        </div>
+        <button type="submit" class="btn btn-success js-create-post">Post a reply</button>
+      </form>
+    </div>
+
+<div id="all_post">
+    {% include 'includes/posts.html' %}
+</div>
+
+
+ {% endblock %}
+
+ {% block javascript %}
+  <script src="{% static 'js/blog/post.js' %}"></script>
+  <script src="{% static 'js/simplemde.min.js' %}"></script>
+  <script>
+    var simplemde = new SimpleMDE();
+   </script>
+
+ {% endblock %}
